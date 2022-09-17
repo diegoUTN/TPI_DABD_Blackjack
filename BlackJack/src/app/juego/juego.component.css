@@ -1,0 +1,12 @@
+.two-columns {
+    width: 12%;
+    display: inline-block;
+}
+
+div {
+    background-color: green;
+}
+
+h1 {
+    color: white;
+}
