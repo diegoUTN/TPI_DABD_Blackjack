@@ -1,4 +1,5 @@
 .two-columns {
+    margin: 4px;
     width: 12%;
     display: inline-block;
 }
@@ -9,4 +10,10 @@ div {
 
 h1 {
     color: white;
+}
+
+.btn {
+    margin: 4px;/* dar espacio entre botones */
+    width: 150px;
+    height: 40px;
 }
