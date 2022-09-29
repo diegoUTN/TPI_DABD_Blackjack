@@ -129,9 +129,9 @@ export class JuegoComponent implements OnInit {
 
   finalizarJuego() {
     if(this.mejorTotal > this.mejorTotalGroupier) {
-      this.estado = "GANASTE !! ";
+      this.estado = "WIN";
     } else {
-      this.estado = "PERDISTE !!!"
+      this.estado = "LOSE"
     }
   }
 
