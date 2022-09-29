@@ -30,7 +30,7 @@ export class JuegoComponent implements OnInit {
   }
 
   iniciarJuego() {
-    this.limpiarArrays();
+    this.limpiarCampos();
     let cartaGroupier1: number = this.retornarAleatorio();
     this.cartasGroupier = [cartaGroupier1, 0];
     let valor = this.obtenerValorCarta(cartaGroupier1);
@@ -54,14 +54,16 @@ export class JuegoComponent implements OnInit {
     this.sumarTotalJugador(valor2);
     
     this.cartasJugador = [cartaJug1, cartaJug2];
-    this.isPedirEnabled = true;
-    this.isPlantarseEnabled = true;
   }
 
-  limpiarArrays() {
+  limpiarCampos() {
     this.totalGroupier = [];
     this.totalJugador = [];
+    this.isPedirEnabled = true;
+    this.isPlantarseEnabled = true;
     this.estado = "En juego...";
+    this.mejorTotal = 0;
+    this.mejorTotalGroupier = 0;
   }
 
   sumarTotalJugador(valor: number) {
