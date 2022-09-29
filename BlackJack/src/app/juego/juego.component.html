@@ -1,20 +1,28 @@
 <div class="container container-fluid">
+    <button type="button" class="btn btn-primary" (click)="iniciarJuego()">Iniciar</button>
     <div>
         <h1>Croupier: </h1>
         <br>
-        <img src="../../assets/images/reversoCarta.jpg" class="two-columns">
-        <img src="../../assets/images/reversoCarta.jpg" class="two-columns">
+        <app-carta *ngFor="let item of cartasGroupier" numero={{item}} class="two-columns"> </app-carta>
+        <h3>Total groupier: {{totalGroupier[0]}}</h3>
     </div>
     <br>
     <div>
-        <h1>Jugador : </h1>
+        <h1>Jugador : {{nombre}} </h1>
         <br>
-        <img src="../../assets/images/reversoCarta.jpg" class="two-columns">
-        <img src="../../assets/images/reversoCarta.jpg" class="two-columns">
+        <app-carta *ngFor="let carta of cartasJugador" numero={{carta}} class="two-columns"> </app-carta>
+        <h3 *ngFor="let total of totalJugador">Total {{total}}</h3>
         <div>
-            <button type="button" class="btn btn-primary">Pedir</button>
-            <button type="button" class="btn btn-danger">Plantarse</button>
-            <button type="button" class="btn btn-success">Doblar</button>
+            <button type="button" class="btn btn-primary" *ngIf="isPedirEnabled"
+                    (click)="pedirCartaJugador()">Pedir</button>
+            <button type="button" class="btn btn-danger" *ngIf="isPlantarseEnabled"
+                    (click)="plantarse()">Plantarse</button>
+            <button type="button" class="btn btn-success" *ngIf="isDoblarEnabled">Doblar</button>
         </div>
     </div>
 </div>
+
+mejorcarta {{mejorTotal}}
+groupier {{ mejorTotalGroupier}}
+<br>
+RESULTADO: {{ estado}}
