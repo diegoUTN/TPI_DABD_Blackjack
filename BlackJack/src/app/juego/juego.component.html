@@ -1,16 +1,21 @@
 <div class="container container-fluid">
     <br>
-    <button type="button" class="btn btn-primary" (click)="iniciarJuego()">Iniciar</button>
-    
+    <div class="form-group row"> 
+        <input type="text" class="form-control col-sm-2 col-form-label" id="inputNombre"  
+            placeholder="Nombre Usuario" [(ngModel)]="nombre">
+        <div class="col-sm-10">
+            <button type="button" class="col-sm-2 col-form-label btn btn-primary" (click)="iniciarJuego()">Iniciar</button>
+        </div>
+    </div>
     <div>
-        <h1>Croupier: </h1>
+        <h1>Croupier </h1>
         <br>
         <app-carta *ngFor="let item of cartasGroupier" numero={{item}} class="two-columns"> </app-carta>
         <h3>Total Croupier: {{totalGroupier[0]}}</h3>
     </div>
     <br>
     <div>
-        <h1>Jugador : {{nombre}} </h1>
+        <h1>Jugador : <strong>{{nombre}}</strong>  </h1>
         <br>
         <app-carta *ngFor="let carta of cartasJugador" numero={{carta}} class="two-columns"> </app-carta>
         <h3 *ngFor="let total of totalJugador">Total Jugador: {{total}}</h3>
@@ -22,16 +27,13 @@
             <button type="button" class="btn btn-success" *ngIf="isDoblarEnabled">Doblar</button>
         </div>
     </div>
-
-
-
+    
     <br>
     <br>
     <div class="abs-center">
-        
         <b>Mejor Carta {{mejorTotal}}</b>
-        
     </div>
+    
     <br>
     <div class="abs-center">
         <b>Groupier {{ mejorTotalGroupier}}</b>
@@ -42,5 +44,20 @@
         <br>
         <br>
         <br>
+    </div>
+<br>
+<div class="alert alert-success" role="alert" *ngIf="estado == 'WIN'"> Felicitaciones GANASTE !!!! </div>
+<div class="alert alert-danger" role="alert" *ngIf="estado == 'LOSE'"> PERDISTE, vuelve a intentarlo !! </div>
+<br>
+<div class="card text-center">
+    <div class="card-body">
+      <h4 class="card-title">Play BLACKJACK !!!!</h4>
+      <a href="https://es.wikipedia.org/wiki/Blackjack" target="_blank" class="btn btn-success">Como se Juega?</a>
+    </div>
+    <div class="card-footer">
+        Trabajo Practico de DABD 
+        [Sosa Diego Ezequiel - 113164] 
+        [Sosa Diego Ezequiel - 113164]
+        [Sosa Diego Ezequiel - 113164].
     </div>
 </div>
