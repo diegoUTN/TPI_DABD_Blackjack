@@ -27,28 +27,21 @@
             <button type="button" class="btn btn-success" *ngIf="isDoblarEnabled">Doblar</button>
         </div>
     </div>
-    
-    <br>
-    <br>
-    <div class="abs-center">
-        <b>Mejor Carta {{mejorTotal}}</b>
-    </div>
+</div>
+<br>
+<br>
+<div class="abs-center">
+   <b>Mejor Carta {{mejorTotal}}</b>
+</div>
     
     <br>
     <div class="abs-center">
         <b>Groupier {{ mejorTotalGroupier}}</b>
     </div>
-    
-    <div class="abs-center">
-        <b>RESULTADO: {{ estado}}</b>
-        <br>
-        <br>
-        <br>
-    </div>
-<br>
-<div class="alert alert-success" role="alert" *ngIf="estado == 'WIN'"> Felicitaciones GANASTE !!!! </div>
-<div class="alert alert-danger" role="alert" *ngIf="estado == 'LOSE'"> PERDISTE, vuelve a intentarlo !! </div>
-<br>
+    <br>
+    <div class="alert alert-success abs-center" role="alert" *ngIf="estado == 'WIN'"> Felicitaciones GANASTE !!!! </div>
+    <div class="alert alert-danger abs-center" role="alert" *ngIf="estado == 'LOSE'"> PERDISTE, vuelve a intentarlo !! </div>
+    <br>
 <div class="card text-center">
     <div class="card-body">
       <h4 class="card-title">Play BLACKJACK !!!!</h4>
