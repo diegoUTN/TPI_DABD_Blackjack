@@ -17,3 +17,10 @@ h1 {
     width: 150px;
     height: 40px;
 }
+
+.abs-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+  }

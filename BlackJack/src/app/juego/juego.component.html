@@ -1,5 +1,7 @@
 <div class="container container-fluid">
+    <br>
     <button type="button" class="btn btn-primary" (click)="iniciarJuego()">Iniciar</button>
+    
     <div>
         <h1>Croupier: </h1>
         <br>
@@ -11,7 +13,7 @@
         <h1>Jugador : {{nombre}} </h1>
         <br>
         <app-carta *ngFor="let carta of cartasJugador" numero={{carta}} class="two-columns"> </app-carta>
-        <h3 *ngFor="let total of totalJugador">Total {{total}}</h3>
+        <h3 *ngFor="let total of totalJugador">Total Jugador: {{total}}</h3>
         <div>
             <button type="button" class="btn btn-primary" *ngIf="isPedirEnabled"
                     (click)="pedirCartaJugador()">Pedir</button>
@@ -20,9 +22,25 @@
             <button type="button" class="btn btn-success" *ngIf="isDoblarEnabled">Doblar</button>
         </div>
     </div>
-</div>
 
-mejorcarta {{mejorTotal}}
-groupier {{ mejorTotalGroupier}}
-<br>
-RESULTADO: {{ estado}}
+
+
+    <br>
+    <br>
+    <div class="abs-center">
+        
+        <b>Mejor Carta {{mejorTotal}}</b>
+        
+    </div>
+    <br>
+    <div class="abs-center">
+        <b>Groupier {{ mejorTotalGroupier}}</b>
+    </div>
+    
+    <div class="abs-center">
+        <b>RESULTADO: {{ estado}}</b>
+        <br>
+        <br>
+        <br>
+    </div>
+</div>
