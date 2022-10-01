@@ -1,12 +1,17 @@
 <div class="container container-fluid">
     <br>
-    <div class="form-group row"> 
-        <input type="text" class="form-control col-sm-2 col-form-label" id="inputNombre"  
+    <div class="row align-items-center">
+        <br>
+        <br>
+        <div class="col-sm-4">
+            <input type="text" class="form-control col-sm-7 col-form-label" id="inputNombre"  
             placeholder="Nombre Usuario" [(ngModel)]="nombre">
-        <div class="col-sm-10">
-            <button type="button" class="col-sm-2 col-form-label btn btn-primary" (click)="iniciarJuego()">Iniciar</button>
+        </div>
+        <div class="col-sm-4">
+            <button type="button" class="col-sm-4 col-form-label btn btn-primary" (click)="iniciarJuego()">Iniciar</button>
         </div>
     </div>
+    <br>
     <div>
         <h1>Croupier </h1>
         <br>
@@ -25,6 +30,8 @@
             <button type="button" class="btn btn-danger" *ngIf="isPlantarseEnabled"
                     (click)="plantarse()">Plantarse</button>
             <button type="button" class="btn btn-success" *ngIf="isDoblarEnabled">Doblar</button>
+            <br>
+            <br>
         </div>
     </div>
 </div>
@@ -50,7 +57,7 @@
     <div class="card-footer">
         Trabajo Practico de DABD 
         [Sosa Diego Ezequiel - 113164] 
-        [Sosa Diego Ezequiel - 113164]
+        [Spicoña Lourdes Magali - 112735]
         [Sosa Diego Ezequiel - 113164].
     </div>
 </div>
