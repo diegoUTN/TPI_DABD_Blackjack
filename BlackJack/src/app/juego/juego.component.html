@@ -1,14 +1,13 @@
 <div class="container container-fluid">
     <br>
     <div class="row align-items-center">
-        <br>
+
         <br>
         <div class="col-sm-4">
-            <input type="text" class="form-control col-sm-7 col-form-label" id="inputNombre"  
-            placeholder="Nombre Usuario" [(ngModel)]="nombre">
+            <input type="text" class="form-control col-sm-7 col-lg-10 col-form-label" id="inputNombre" placeholder="Nombre Usuario" [(ngModel)]="nombre">
         </div>
         <div class="col-sm-4">
-            <button type="button" class="col-sm-4 col-form-label btn btn-primary" (click)="iniciarJuego()">Iniciar</button>
+            <button type="button" id="btn1" class="col-sm-4 col-form-label btn btn-primary" (click)="iniciarJuego()">Iniciar</button>
         </div>
     </div>
     <br>
@@ -20,15 +19,13 @@
     </div>
     <br>
     <div>
-        <h1>Jugador : <strong>{{nombre}}</strong>  </h1>
+        <h1>Jugador : <strong>{{nombre}}</strong> </h1>
         <br>
         <app-carta *ngFor="let carta of cartasJugador" numero={{carta}} class="two-columns"> </app-carta>
         <h3 *ngFor="let total of totalJugador">Total Jugador: {{total}}</h3>
         <div>
-            <button type="button" class="btn btn-primary" *ngIf="isPedirEnabled"
-                    (click)="pedirCartaJugador()">Pedir</button>
-            <button type="button" class="btn btn-danger" *ngIf="isPlantarseEnabled"
-                    (click)="plantarse()">Plantarse</button>
+            <button type="button" class="btn btn-primary" id="btnPedir" *ngIf="isPedirEnabled" (click)="pedirCartaJugador()">Pedir</button>
+            <button type="button" class="btn btn-danger" id="btnPlantarse" *ngIf="isPlantarseEnabled" (click)="plantarse()">Plantarse</button>
             <button type="button" class="btn btn-success" *ngIf="isDoblarEnabled">Doblar</button>
             <br>
             <br>
@@ -37,18 +34,15 @@
 </div>
 <br>
 <br>
-    <div class="alert alert-success abs-center" role="alert" *ngIf="estado == 'WIN'"> Felicitaciones GANASTE !!!! </div>
-    <div class="alert alert-danger abs-center" role="alert" *ngIf="estado == 'LOSE'"> PERDISTE, vuelve a intentarlo !! </div>
-    <br>
+<div class="alert alert-success abs-center" role="alert" *ngIf="estado == 'WIN'"> Felicitaciones GANASTE !!!! </div>
+<div class="alert alert-danger abs-center" role="alert" *ngIf="estado == 'LOSE'"> PERDISTE, vuelve a intentarlo !! </div>
+<br>
 <div class="card text-center">
     <div class="card-body">
-      <h4 class="card-title">Play BLACKJACK !!!!</h4>
-      <a href="https://es.wikipedia.org/wiki/Blackjack" target="_blank" class="btn btn-success">Como se Juega?</a>
+        <h4 class="card-title">Play BLACKJACK !!!!</h4>
+        <a href="https://es.wikipedia.org/wiki/Blackjack" target="_blank" id="btnReglas" class="btn btn-success">Como se Juega?</a>
     </div>
     <div class="card-footer">
-        Trabajo Practico de DABD 
-        [Sosa Diego Ezequiel - 113164] 
-        [Spicoña Lourdes Magali - 112735]
-        [Sosa Diego Ezequiel - 113164].
+        Trabajo Practico de DABD [Sosa Diego Ezequiel - 113164] [Spicoña Lourdes Magali - 112735] [Spicoña Analia del Valle - 112747].
     </div>
 </div>

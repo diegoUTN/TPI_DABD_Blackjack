@@ -17,14 +17,54 @@ h1 {
 }
 
 .btn {
-    margin: 4px;/* dar espacio entre botones */
-    width: 150px;
-    height: 40px;
+    margin: 4px;
+    /* dar espacio entre botones */
+    width: 10rem;
+    height: 4rem;
+    border-radius: 4rem;
+    box-shadow: 12px 10px 20px #3f3f3f;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-shadow: 3px 2px 1px #4a4a4a;
+    font-size: 2rem;
 }
 
 .abs-center {
     display: flex;
     align-items: center;
     justify-content: center;
-    
-  }
+}
+
+#btn1 {
+    width: 10rem;
+    height: 7rem;
+    background: #c0f45f;
+    background-image: -webkit-radial-gradient(center, #fbfb6c, #ce6c16);
+    border-radius: 4rem;
+    border-color: #ce6c16;
+    text-shadow: 3px 2px 1px #4a4a4a;
+    box-shadow: 12px 10px 20px #3f3f3f;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2rem;
+}
+
+#inputNombre {
+    box-shadow: 12px 10px 20px #3f3f3f;
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-shadow: 4px 4px 2px #4a4a4a;
+}
+
+#btnPedir {
+    background-image: -webkit-linear-gradient(top, #3131ff, #54d1f7);
+}
+
+#btnPlantarse {
+    background-image: -webkit-linear-gradient(top, #fa3224, #fda1a1);
+}
+
+#btnReglas {
+    width: 20rem;
+}
