@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  userBaseUrl: "http://localhost:8080/tpi/blackjack" 
 };

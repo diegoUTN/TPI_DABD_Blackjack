@@ -14,15 +14,15 @@
     <div>
         <h1>Croupier </h1>
         <br>
-        <app-carta *ngFor="let item of cartasGroupier" numero={{item}} class="two-columns"> </app-carta>
-        <h3>Total Croupier: {{totalGroupier[0]}}</h3>
+        <app-carta *ngFor="let item of jugada.cartasCroupier" numero={{item}} class="two-columns"> </app-carta>
+        <h3 *ngFor="let total of jugada.totalCroupier">Total Croupier: {{total}}</h3>
     </div>
     <br>
     <div>
         <h1>Jugador : <strong>{{nombre}}</strong> </h1>
         <br>
-        <app-carta *ngFor="let carta of cartasJugador" numero={{carta}} class="two-columns"> </app-carta>
-        <h3 *ngFor="let total of totalJugador">Total Jugador: {{total}}</h3>
+        <app-carta *ngFor="let carta of jugada.cartasJugador" numero={{carta}} class="two-columns"> </app-carta>
+        <h3 *ngFor="let total of jugada.totales">Total Jugador: {{total}}</h3>
         <div>
             <button type="button" class="btn btn-primary" id="btnPedir" *ngIf="isPedirEnabled" (click)="pedirCartaJugador()">Pedir</button>
             <button type="button" class="btn btn-danger" id="btnPlantarse" *ngIf="isPlantarseEnabled" (click)="plantarse()">Plantarse</button>
@@ -34,8 +34,8 @@
 </div>
 <br>
 <br>
-<div class="alert alert-success abs-center" role="alert" *ngIf="estado == 'WIN'"> Felicitaciones GANASTE !!!! </div>
-<div class="alert alert-danger abs-center" role="alert" *ngIf="estado == 'LOSE'"> PERDISTE, vuelve a intentarlo !! </div>
+<div class="alert alert-success abs-center" role="alert" *ngIf="jugada.resultado== 'GANO'"> Felicitaciones GANASTE !!!! </div>
+<div class="alert alert-danger abs-center" role="alert" *ngIf="jugada.resultado == 'PERDIO'"> PERDISTE, vuelve a intentarlo !! </div>
 <br>
 <div class="card text-center">
     <div class="card-body">
