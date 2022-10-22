@@ -19,7 +19,7 @@ export class JuegoService {
     return this.http.get<Jugada>(this.apiUrlBase + "/iniciar/" + user);
   }
 
-  pedirCarta(id: number): Observable<Jugada> {
+  pedirCarta(id: string): Observable<Jugada> {
     return this.http.get<Jugada>(this.apiUrlBase + "/pedir/" + id);
   }
 

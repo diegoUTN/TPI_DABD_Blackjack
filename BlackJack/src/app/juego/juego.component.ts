@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Jugada } from 'src/interfaces/Jugada';
 import { JuegoService } from 'src/services/juego.service';
+import { UserService } from 'src/services/user.service';
 
 @Component({
   selector: 'app-juego',
@@ -14,13 +15,18 @@ export class JuegoComponent implements OnInit {
   jugada = {} as Jugada;
   
   nombre : string = "";
+  id : string = "";
   
   isDoblarEnabled : boolean = false;
   isPedirEnabled : boolean = false;
   isPlantarseEnabled : boolean = false;
 
-  constructor(private juegoSrvc: JuegoService, private router: Router) { 
+  constructor(private juegoSrvc: JuegoService, 
+      private userServ : UserService,
+      private router: Router) { 
     this.limpiarCampos();
+    this.nombre = this.userServ.getUser();
+    this.id = this.userServ.getToken();
   }
 
   ngOnInit(): void {
@@ -30,12 +36,7 @@ export class JuegoComponent implements OnInit {
   iniciarJuego() {
     this.limpiarCampos();
 
-    if(this.nombre == "") {
-      alert("Ingrese Nombre de Usuario");
-      return;
-    }
-
-    this.juegoSrvc.iniciarPartida(this.nombre).subscribe({
+    this.juegoSrvc.iniciarPartida(this.id).subscribe({
       next: (response: Jugada) => {
         this.jugada = response;
         this.jugada.cartasCroupier.push(0);
@@ -57,11 +58,14 @@ export class JuegoComponent implements OnInit {
   }
 
   pedirCartaJugador() {
-    this.juegoSrvc.pedirCarta(this.jugada.id).subscribe({
+    this.juegoSrvc.pedirCarta(this.jugada.id.toString()).subscribe({
       next: (response: Jugada) => {
         this.jugada = response;
         if(this.jugada.cartasCroupier.length == 1) {
           this.jugada.cartasCroupier.push(0);
+        } else {
+          this.isPedirEnabled = false;
+          this.isPlantarseEnabled = false;
         }
       },
       error: (err: HttpErrorResponse) => {
@@ -73,15 +77,6 @@ export class JuegoComponent implements OnInit {
         }
       }
     })
-
-    if(!this.seguirJugando()) {
-      this.isPedirEnabled = false;
-      this.isPlantarseEnabled = false;
-    }
-  }
-
-  seguirJugando() {
-    return this.jugada.resultado == "EN_JUEGO";
   }
 
   plantarse() {
@@ -101,6 +96,11 @@ export class JuegoComponent implements OnInit {
 
     this.isPedirEnabled = false;
     this.isPlantarseEnabled = false;
+  }
+
+  logout() {
+    this.userServ.setToken("", "");
+    this.router.navigate(['login']);
   }
 
 }
