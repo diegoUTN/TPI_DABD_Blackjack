@@ -31,11 +31,10 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/']);
       },
       error: (err: HttpErrorResponse) => {
-        if(err.status == HttpStatusCode.NotFound) {
-          alert('Usuario y/o contrasena incorrecta');
-        }
         if(err.status == HttpStatusCode.InternalServerError) {
           alert("Error en el Servicio"); 
+        } else {
+          alert('Usuario y/o contrasena incorrecta');
         }
       },
     })
