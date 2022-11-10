@@ -47,6 +47,31 @@ h1 {
     font-size: 2rem;
 }
 
+#btn3 {
+    width: 10rem;
+    height: 7rem;
+    background: rgb(16, 1, 20);
+    background-image: -webkit-radial-gradient(center, #3ee2da, #721bd6);
+    border-radius: 4rem;
+    border-color: #021d25;
+    text-shadow: 3px 2px 1px #160101;
+    box-shadow: 12px 10px 20px #140101;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1rem;
+}
+
+#btn2 {
+    width: 10rem;
+    height: 7rem;
+    background: #4cee95;
+    background-image: -webkit-radial-gradient(center, #f383ea, #e92832);
+    border-radius: 4rem;
+    border-color: #e784da;
+    text-shadow: 3px 2px 1px #4a4a4a;
+    box-shadow: 12px 10px 20px #3f3f3f;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2rem;
+}
 #inputNombre {
     box-shadow: 12px 10px 20px #3f3f3f;
     text-align: center;

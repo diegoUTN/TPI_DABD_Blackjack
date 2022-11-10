@@ -103,4 +103,8 @@ export class JuegoComponent implements OnInit {
     this.router.navigate(['login']);
   }
 
+  reportes() {
+    this.router.navigate(['reporte']);
+  }
+
 }

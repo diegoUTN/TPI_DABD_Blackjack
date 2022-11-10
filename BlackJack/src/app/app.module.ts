@@ -9,6 +9,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './user/login/login.component';
 import { MainComponent } from './main/main.component';
 import { RegistroComponent } from './user/registro/registro.component';
+import { NgChartsModule } from 'ng2-charts';
+import { ReportesComponent } from './reportes/reportes.component';
 
 @NgModule({
   declarations: [
@@ -17,13 +19,15 @@ import { RegistroComponent } from './user/registro/registro.component';
     CartaComponent,
     LoginComponent,
     MainComponent,
-    RegistroComponent
+    RegistroComponent,
+    ReportesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

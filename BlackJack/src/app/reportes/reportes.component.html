@@ -1,0 +1,120 @@
+<div class="container container-fluid">
+    <h1>Estadisticas BlackJack</h1>
+    <button class="btn btn-success" (click)="volver()"> Volver al Juego</button>
+
+    <h2>Estadisticas Jugador {{ userName }}</h2>
+
+    <div class="container container-fluid">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="tile-progress tile-green">
+                    <div class="tile-header">
+                        <h3>JUGADAS</h3>
+                        <span>Total Partidas jugadas.</span>
+                    </div>
+                    <div class="tile-progressbar">
+                        <span data-fill="%" style="width: 55%;"></span>
+                    </div>
+                    <div class="tile-footer">
+                        <h4>
+                            <span class="pct-counter">{{totalJugadoJug}}</span>
+                        </h4>
+                        <span>...</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="tile-progress tile-cyan">
+                    <div class="tile-header">
+                        <h3>GANADAS</h3>
+                        <span>Partidas Ganadas</span>
+                    </div>
+                    <div class="tile-progressbar">
+                        <span *ngIf="porcGanoJug == 0" data-fill="%" style="width: 0%;"></span>
+                        <span *ngIf="porcGanoJug > 0 && porcGanoJug < 10" data-fill="%" style="width: 5%;"></span>
+                        <span *ngIf="porcGanoJug > 9 && porcGanoJug < 20" data-fill="%" style="width: 15%;"></span>
+                        <span *ngIf="porcGanoJug > 19 && porcGanoJug < 30" data-fill="%" style="width: 25%;"></span>
+                        <span *ngIf="porcGanoJug > 29 && porcGanoJug < 40" data-fill="%" style="width: 35%;"></span>
+                        <span *ngIf="porcGanoJug > 39 && porcGanoJug < 50" data-fill="%" style="width: 45%;"></span>
+                        <span *ngIf="porcGanoJug > 49 && porcGanoJug < 60" data-fill="%" style="width: 55%;"></span>
+                        <span *ngIf="porcGanoJug > 59 && porcGanoJug < 70" data-fill="%" style="width: 65%;"></span>
+                        <span *ngIf="porcGanoJug > 69 && porcGanoJug < 80" data-fill="%" style="width: 75%;"></span>
+                        <span *ngIf="porcGanoJug > 79 && porcGanoJug < 90" data-fill="%" style="width: 85%;"></span>
+                        <span *ngIf="porcGanoJug > 89 && porcGanoJug < 100" data-fill="%" style="width: 95%;"></span>
+                        <span *ngIf="porcGanoJug == 100" data-fill="%" style="width: 99%;"></span>
+                    </div>
+                    <div class="tile-footer">
+                        <h4>
+                            <span class="pct-counter">{{porcGanoJug}}</span>% 
+                        </h4>
+                        <span>{{totalGanoJug}} partidas</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="tile-progress tile-purple">
+                    <div class="tile-header">
+                        <h3>BLACKJACK</h3>
+                        <span>Partidas con 21.</span>
+                    </div>
+                    <div class="tile-progressbar">
+                        <span *ngIf="porcBJJug == 0" data-fill="%" style="width: 0%;"></span>
+                        <span *ngIf="porcBJJug > 0 && porcBJJug < 10" data-fill="%" style="width: 5%;"></span>
+                        <span *ngIf="porcBJJug > 9 && porcBJJug < 20" data-fill="%" style="width: 15%;"></span>
+                        <span *ngIf="porcBJJug > 19 && porcBJJug < 30" data-fill="%" style="width: 25%;"></span>
+                        <span *ngIf="porcBJJug > 29 && porcBJJug < 40" data-fill="%" style="width: 35%;"></span>
+                        <span *ngIf="porcBJJug > 39 && porcBJJug < 50" data-fill="%" style="width: 45%;"></span>
+                        <span *ngIf="porcBJJug > 49 && porcBJJug < 60" data-fill="%" style="width: 55%;"></span>
+                        <span *ngIf="porcBJJug > 59 && porcBJJug < 70" data-fill="%" style="width: 65%;"></span>
+                        <span *ngIf="porcBJJug > 69 && porcBJJug < 80" data-fill="%" style="width: 75%;"></span>
+                        <span *ngIf="porcBJJug > 79 && porcBJJug < 90" data-fill="%" style="width: 85%;"></span>
+                        <span *ngIf="porcBJJug > 89 && porcBJJug < 100" data-fill="%" style="width: 95%;"></span>
+                        <span *ngIf="porcBJJug == 100" data-fill="%" style="width: 99%;"></span>
+                    </div>
+                    <div class="tile-footer">
+                        <h4>
+                            <span class="pct-counter">{{porcBJJug}}</span>% 
+                        </h4>
+                        <span>{{totalBJJug}} productos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="container container-fluid">
+        <div class="row">
+            <h2>Estadisticas Generales del Juego</h2>
+                <!-- Grafico de Barra () -->
+                <div class="col-sm-12" style="width: 400px;">
+                    <span> <h3>Cantidad de Partidas por Dia</h3></span>
+                    <div class="col-12">
+                        <select id="selectRango" class="form-select" name="rango" [(ngModel)]="rango" (change)="cargarEstadisticasPorFecha()" >
+                            <option [defaultSelected]="true" value="1">Ultimo MES</option>
+                            <option value="2">Ultima SEMANA</option>
+                        </select>
+                        <canvas baseChart style="width: 600;" type="bar" [data]="datosFecha"> </canvas>
+                    </div>
+                </div>
+            </div>
+<br>
+<br>
+
+        <div class="row">
+                <!-- Grafico de Torta () -->
+                <div class="col-sm-6" style="width: 400px;">
+                    <span> <h3>Indice de Victorias</h3></span>
+                    <canvas baseChart type="pie" [data]="datosTorta"></canvas>
+                </div>
+
+                <!-- Grafico de Torta () -->
+                <div class="col-sm-6" style="width: 400px;">
+                    <span> <h3>Jugadas con 21</h3></span>
+                    <canvas baseChart type="pie" [data]="datos21"></canvas>
+                </div>
+        </div>
+    </div>
+
+</div>
